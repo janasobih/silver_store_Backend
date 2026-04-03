@@ -7,6 +7,9 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
+const cors = require("cors");
+app.use(cors());
+
 mongoose
   .connect(process.env.DB_URI)
   .then(() => {
