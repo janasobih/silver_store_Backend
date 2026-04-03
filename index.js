@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv");
-dotenv.config({ path: ".env" });
 const mongoose = require("mongoose");
 const categoryRoute = require("./routes/CatecoryRoute");
+
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 mongoose
   .connect(process.env.DB_URI)
